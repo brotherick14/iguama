@@ -6,6 +6,7 @@
 package Inicio.com.erick.util;
 
 import Inicio.com.erick.model.Transaction;
+import java.io.FileNotFoundException;
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -15,13 +16,15 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import java.io.PrintWriter;
+
 /**
  *
  * @author erick
  */
 public class Report {
     
-    public static void generateReport() throws ParseException{
+    public static void generateReport(int generate) throws ParseException, FileNotFoundException{
         //fechas
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.SSS");
         Date date = dateFormat.parse("2021-02-06 15:00:00.191");
@@ -82,11 +85,35 @@ public class Report {
 
         //prints tomorrow report
         System.out.println("Reporte del dia "+actuald2);
-        transactionsToday.forEach(today -> {
-            System.out.println(today);
+        transactionsTomorrow.forEach(tomorrow -> {
+            System.out.println(tomorrow);
         });
         
+        if(generate == 1){
+            // Open the file.
+        PrintWriter out = new PrintWriter("report.txt"); // Step 2
+        out.println("Reporte del dia "+actuald);   // Step 3
+
+        transactionsToday.forEach(today -> {
+            out.println(today);
+        });
+        out.println("Reporte del dia "+actuald2);   // Step 3
+        transactionsTomorrow.forEach(tomorrow -> {
+            out.println(tomorrow);
+        });
+
+        // Close the file.
+        out.close();  // Step 4
+        
+        System.out.println("");
+        System.out.println(":: REPORTE GENERADO ::");
+        System.out.println("");
+
+        
+        }
         
     }
+    
+    
     
 }

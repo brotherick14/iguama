@@ -7,6 +7,7 @@ package Inicio.com.erick.inicio;
 import Inicio.com.erick.model.Transaction;
 import Inicio.com.erick.util.Report;
 import Inicio.com.erick.util.Utils;
+import java.io.FileNotFoundException;
 import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -67,10 +68,12 @@ public class Main {
 			System.out.println(":: VER REPORTE ::");
 			System.out.println();
                         try {
-                            Report.generateReport();
+                            Report.generateReport(0);
                         } catch (ParseException ex) {
                             System.out.println("error");
-                        }
+                        } catch (FileNotFoundException ex) {
+                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            }
 			
 			System.out.println("0. Regresar al Menu");
 			System.out.println();
@@ -91,21 +94,27 @@ public class Main {
 			System.out.println();
 			System.out.println(":: GENERAR REPORTE ::");
 			System.out.println();
-			
+                        try {
+                            Report.generateReport(1);
+                        } catch (ParseException ex) {
+                            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                        } catch (FileNotFoundException ex) {
+                            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                        }	
 			System.out.println("0. Regresar al Menu");
 			System.out.println();
 			
 			//Leer Respuesta usuario
 			int response = Utils.validateUserResponseMenu(0, 0);
+                        
+                    
+                        
 			
 			if(response == 0) {
 				exit = 0;
 				showMenu();
 			}
 			
-			if(response > 0) {
-                            System.out.println("generar");
-			}
 			
 		}while(exit !=0);
 

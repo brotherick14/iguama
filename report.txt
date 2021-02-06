@@ -1,0 +1,20 @@
+Reporte del dia 2021-02-06
+
+ :: Reporte ::
+ Id Transaccion: 1
+ Fecha de creacion: 2021-02-06 15:00:00.191
+ Id Cliente: 1
+ Nombre del producto: prueba
+ Monto total: $5.1
+ Total millas gastadas: Millas 3923
+ Tipo de cambio: 0.0013
+Reporte del dia 2021-02-07
+
+ :: Reporte ::
+ Id Transaccion: 1
+ Fecha de creacion: 2021-02-07 13:21:02.191
+ Id Cliente: 1
+ Nombre del producto: prueba
+ Monto total: $5.1
+ Total millas gastadas: Millas 1
+ Tipo de cambio: 10.0
