@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Inicio.com.erick.model;
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -15,18 +16,16 @@ import java.util.Date;
  */
 public class Transaction {
     private int id_orden;
-    private  String created_date;
+    private Timestamp created_date;
     private int id_cliente;
     private String product_name;
     private double total_amount;
     private double total_miles;
     private double exchange_rate;
 
-    public Transaction(int id_orden, int id_cliente, String product_name, double total_amount, double total_miles, double exchange_rate) {
+    public Transaction(int id_orden,Timestamp created_date, int id_cliente, String product_name, double total_amount, double total_miles, double exchange_rate) {
         this.id_orden = id_orden;
-        SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss z");
-        Date date = new Date(System.currentTimeMillis());
-        this.created_date = formatter.format(date);
+        this.created_date = created_date;
         this.id_cliente = id_cliente;
         this.product_name = product_name; //50 caracteres maximo
         this.total_amount = total_amount;
@@ -56,7 +55,7 @@ public class Transaction {
         return id_orden;
     }
 
-    public String getCreated_date() {
+    public Timestamp getCreated_date() {
         return created_date;
     }
 
@@ -89,9 +88,6 @@ public class Transaction {
         this.id_orden = id_orden;
     }
 
-    public void setCreated_date(String created_date) {
-        this.created_date = created_date;
-    }
 
     public void setId_cliente(int id_cliente) {
         this.id_cliente = id_cliente;

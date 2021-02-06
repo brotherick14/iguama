@@ -7,6 +7,9 @@ package Inicio.com.erick.inicio;
 import Inicio.com.erick.model.Transaction;
 import Inicio.com.erick.util.Report;
 import Inicio.com.erick.util.Utils;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -63,7 +66,12 @@ public class Main {
 			System.out.println();
 			System.out.println(":: VER REPORTE ::");
 			System.out.println();
-                        Report.generateReport();
+                        try {
+                            Report.generateReport();
+                        } catch (ParseException ex) {
+                            System.out.println("error");
+                        }
+			
 			System.out.println("0. Regresar al Menu");
 			System.out.println();
 			
@@ -74,8 +82,6 @@ public class Main {
 				exit = 0;
 				showMenu();
 			}
-			
-			
 			
 		}while(exit !=0);
     }
